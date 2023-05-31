@@ -8,7 +8,9 @@ import java.util.Optional;
 
 public interface IMovieService {
     List<Movie> getAllMovies();
+
     Optional<Movie> singleMovieById(ObjectId id);
+
     Optional<Movie> singleMovieByImdbId(String id);
 
     Optional<List<Movie>> movieByGenres(String genres);
