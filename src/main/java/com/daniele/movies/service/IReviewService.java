@@ -4,4 +4,6 @@ import com.daniele.movies.model.Review;
 
 public interface IReviewService {
     Review createReview(String reviewBody, String imdbId);
+
+    public String deleteReview(String imdbId);
 }

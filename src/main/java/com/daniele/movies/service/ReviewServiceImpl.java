@@ -11,6 +11,8 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ReviewServiceImpl implements IReviewService {
 
@@ -37,6 +39,14 @@ public class ReviewServiceImpl implements IReviewService {
         log.info("create review:" + reviewBody + "for id: " + imdbId);
 
         return review;
+
+    }
+
+    @Override
+    public String deleteReview(String id){
+        Optional<Review> review = reviewRepository.findReviewById(id);
+        review.ifPresent(reviewRepository::delete);
+        return "review id: " + id + " deleted!";
 
     }
 
