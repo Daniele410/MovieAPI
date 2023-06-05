@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000") // Set the domain of your React client
 @RequestMapping("/api/v1/reviews")
 public class ReviewController {
 
@@ -17,6 +18,8 @@ public class ReviewController {
     public ReviewController(IReviewService reviewService) {
         this.reviewService = reviewService;
     }
+
+
 
     @PostMapping
     public ResponseEntity<Review> createReview(@RequestBody Map<String, String> payload){
